@@ -1,4 +1,4 @@
-# Learning XOR with TensorFlow
+# The revenge of Perceptron - Learning XOR with TensorFlow
 ## From the GBC Book or the Deep Learning Book
 ### by Claude COULOMBE - TÉLUQ / UQAM - Montréal
 
