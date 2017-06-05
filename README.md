@@ -101,11 +101,11 @@ In case of problem with gradient (exploding or vanishing gradient) we could alte
 
 ### Instructions
 
-1) Check out this repository. 
-git clone https://github.com/ClaudeCoulombe/GBC_book_DeepLearningBook.git
+1) Check out this repository<br/>
+> git clone https://github.com/ClaudeCoulombe/GBC_book_DeepLearningBook.git
 
-2) Start Jupyter iPython Notebook from the folder where the code ins installed
-Jupyter Notebook
+2) Start Jupyter iPython Notebook from the folder where the code ins installed<br/>
+> Jupyter Notebook
 
 3) Execute the GBC_Book-Learning_XOR_In_TensorFlow.ipynb notebook
 
