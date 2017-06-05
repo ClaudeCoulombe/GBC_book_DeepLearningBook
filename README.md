@@ -82,23 +82,23 @@ We have also added a sigmoid function at the output layer as recommended for the
 
 Now it's time to move on and implement the XOR network in TensorFlow. I've been inspired by the blog post <a href="https://aimatters.wordpress.com/2016/01/16/solving-xor-with-a-neural-network-in-tensorflow/">"Solving XOR with a Neural Network in TensorFlow"</a> by Stephen OMAN and the <a href="https://github.com/StephenOman/TensorFlowExamples/blob/master/xor%20nn/xor_nn.py">code</a> in his GitHub repo. 
 
-#### Playing with loss functions
+#### Playing with different loss functions
 
 I also proposed different loss functions that I've commented in my code below. 
 
 First, a naive direct implementation of the loss function as shown in the GBC book.
 
-`n_instances = X.get_shape().as_list()[0]`<br/>
+`n_instances = X.get_shape().as_list()[0]`.ipynb_checkpoints/
 `loss = tf.reduce_sum(tf.pow(y_estimated - Y, 2))/ n_instances`
 
-Then the classical MSE function suggested for math simplicity in the GBC book which uses the TensorFlow `tf.reduce_mean` function that should take care of numerical stability issue as I read somewhere...       
+Then the classical MSE function suggested for math simplicity in the GBC book which uses the TensorFlow `tf.reduce_mean` function that should take care of numerical stability issue as I read somewhere...<br/>      
 
-`loss = tf.reduce_mean(tf.squared_difference(y_estimated, Y))` 
+`loss = tf.reduce_mean(tf.squared_difference(y_estimated, Y))`<br/> 
 
-For better result with binary classifier, use cross entropy with a sigmoid
+For better result with binary classifier, use cross entropy with a sigmoid<br/>
 `loss = tf.nn.sigmoid_cross_entropy_with_logits(logits=y_estimated, labels=Y)`
 
-In case of problem with gradient (exploding or vanishing gradient) we could alternatively perform gradient clipping using the TensorFlow function `tf.clip_by_value(t, clip_value_min, clip_value_max)`. Any value less than clip_value_min will be set to clip_value_min. Any value greater than clip_value_max will be set to clip_value_max.
+In case of problem with gradient (exploding or vanishing gradient) we could alternatively perform gradient clipping using the TensorFlow function `tf.clip_by_value(t, clip_value_min, clip_value_max)`. Any value less than clip_value_min will be set to clip_value_min. Any value greater than clip_value_max will be set to clip_value_max.<br/>
 
 `loss = tf.reduce_sum(tf.pow(tf.clip_by_value(y_estimated,1e-10,1.0) - Y,2))/(n_instances)`
 
