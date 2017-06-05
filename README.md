@@ -38,7 +38,9 @@ At the same time there is probably historical reason behind this precise example
 
 But the reality is much more nuanced (https://goo.gl/HZglx7). In 1969, it was already widely known that networks of neurons with linear and nonlinear functions can compute any possible boolean function. Furthermore, at that time, the backtracking algorithm was not invented yet and nobody knew how to train hidden layer of neurons.  
 
-### One hidden layer Neural Network can learn XOR
+### The revenge of Perceptron
+
+#### One hidden layer Neural Network can learn XOR
 
 <u>That said, we will show now that a neural network with one hidden layer and the backpropagation algorithm can learn XOR.</u> 
 
