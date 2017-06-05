@@ -60,7 +60,8 @@ What does the function f<sup>(1)</sup> compute? We cannot take linear models sin
 
 So, we must use a nonlinear function. Most neural networks used an affine function (linear function followed by a translation like f(x) = ax+b) defined by their learned parameters (a,b), followed by a nonlinear function called the 'activation' function. Since we have an affine function from a vector x to a vector h, then an entire matrix vector W of weights and a vector c of bias parameters are needed. Thus, we deﬁne h=g(W<sup>T</sup>x+c), where W are the weights of an affine function and c the biases. 
 
-The activation function g is applied element-wise, with $h<sub>i</sub> = g(x<sup>T</sup>W<sub>:,i</sub>+c<sub>i</sub>)$. The state-of-the-art recommendation for the activation function is to use the rectiﬁed linear unitor ReLU (Jarrett et al., 2009; Nair and Hinton, 2010; Glorot et al., 2011a) deﬁned by the function g(z) = max{0,z} shown below. Strangely, this function is neither continous nor derivable at z=0.
+The activation function g is applied element-wise, with h<sub>i</sub> = g(x<sup>T</sup>W<sub>:,i</sub>+c<sub>i</sub>). The state-of-the-art recommendation for the activation function is to use the rectiﬁed linear unitor ReLU (Jarrett et al., 2009; Nair and Hinton, 2010; Glorot et al., 2011a) deﬁned by the function g(z) = max{0,z} shown below. Strangely, this function is neither continous nor derivable at z=0.<br/>
+
 <img src="images/ReLU_function.png" width=600 />
 
 Mathematically, the complete network is:
@@ -73,11 +74,11 @@ Now that we have our model, it's time to choose a loss function. We will treat t
 
 Mathematically our MSE loss function is:
 
-<center>J(&Theta;) = 1/4 &Sigma;<sub>{x &epsilon; X}</sub>(f<sup>*</sup>(x)-f(x;&Theta;))<sup>2</sup></center>
+<center>J(&Theta;) = 1/4 &Sigma;<sub>{x &epsilon; X}</sub>(f<sup>*</sup>(x)-f(x;&Theta;))<sup>2</sup></center><br/>
 
 We also add a sigmoid function at the output layer as recommended for the prediction of a binary variable in the section 6.2.2.2 of the GBC book. 
 
-<center>ÿ = &Sigma;(w<sup>T</sup> max{0,W<sup>T</sup>x+c}+b)</center>
+<center>ÿ = &sigma;(w<sup>T</sup> max{0,W<sup>T</sup>x+c}+b)</center>
 
 ### TensorFlow implementation
 
