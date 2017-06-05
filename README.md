@@ -2,10 +2,7 @@
 ## From the GBC Book or the Deep Learning Book
 ### by Claude COULOMBE - TÉLUQ / UQAM - Montréal
 
-
 ### Introduction
-
-I've studied Machine Learning and Representation Learning which became «Deep Learning», attending Yoshua Bengio's courses in the late 2000s at Université de Montréal (UdeM). Recently, I decided to refresh my knowledge with the «Deep Learning» book published by MIT Press in 2016, featuring two UdeM professors and a brilliant PhD student, Ian GoodFellow who is now at Google. I shall refer to this book as the GBC  (Goodfellow, Bengio, Courville) book.  
 
 The GBC book is worth the reading. It's definitely THE authoritative reference on Deep Learning but you should not be allergic to maths. 
 
@@ -26,7 +23,7 @@ So now, I commit a modest contribution to my dream by coding the 6.1 Example: Le
 
 In order to make the idea of a feedforward network (or multilayer perceptron) more concrete, in chapter 6 (Deep Feedforward Networks) the GBC book suggests a small example of a fully functioning feedforward network on a very simple task: learning the XOR (“exclusive or”) function. Below, the XOR Truth Table:
 
-<img src="images/XOR_Truth_Table.png" width=250 />
+<img src="images/XOR_Truth_Table.png" width=200 />
 
 Nobody should get too excited, this is NOT a deep neural network example. It's quite the contrary, but it's an instructive illustration of a simple problem that requires a three layers perceptron (with a so-called "hidden" or "intermediary" layer) also known as one "hidden layer" perceptron. It also needs nonlinear functions called activation functions. 
 
@@ -50,13 +47,13 @@ Below the architecture of our shallow (not deep at all!) feedforward neural netw
 The left part of the above figure shows a detailed representation of the neural network, neuron by neuron with all the connections (except the biases). Good for small NNs this notation can be too cumbersome for larger networks. At right, the neural network is presented by layers in a more compact notation with weights represented by matrix (W and w).
 
 ### A bit of math behind
-Here, the XOR function is the target function y=f*(x) that we want to learn. The model provides a function y=f(x;&Theta;) and backpropagation, our learning algorithm, will adapt the parameters &Theta; to make f as similar as possible to f*.
+The XOR function is the target function y=f*(x) that we want to learn. The model provides a function y=f(x;&Theta;) and backpropagation, our learning algorithm, will adapt the parameters &Theta; to make f as similar as possible to f*.
 
-In this simple example, we want the neural network to perform correctly on only the four points X = { [0,0]<sup>T</sup>, [0,1]<sup>T</sup>, [1,0]<sup>T</sup>, [1,1]<sup>T</sup> } of the XOR truth table. In order to do so, we will train the neural network on all four of these points. The only challenge is to ﬁt the training set.
+In this simple example, we want the neural network to perform correctly on only the four points X = { [0,0]<sup>T</sup>, [0,1]<sup>T</sup>, [1,0]<sup>T</sup>, [1,1]<sup>T</sup> } of the XOR truth table. In order to do so, we will train the neural network on all four of these points. 
 
 The architecture of the neural network is a very simple feedforward network which involves three layers. The first layer is a simple input layer x which is fed to the second layer that is one single layer of hidden units h computed by a function f<sup>(1)</sup>(x;W,c). The values of these hidden units are the input for a third layer which is the output layer of the network. The output layer is a linear regression model applied to h. Thus, the network involves two functions chained together: h=f<sup>(1)</sup>(x;W,c) and y=f<sup>(2)</sup>(h;w,b). The complete model is f(x;W,c,w,b) = f<sup>(2)</sup>(f<sup>(1)</sup>(x)).
 
-What does the function f<sup>(1)</sup> compute? We cannot take linear models since if f<sup>(1)</sup> is linear, then the entire neural network would remain a linear function of its input. Ignoring biases, f<sup>(1)</sup> =W<sup>T</sup>x and f<sup>(2)</sup>(h) = h<sup>T</sup>w, then f(x) = w<sup>T</sup>W<sup>T</sup>x also expressed by f(x) = x<sup>T</sup>w' where w'= Ww
+What does the function f<sup>(1)</sup> compute? We cannot take linear models since if f<sup>(1)</sup> is linear, then the entire neural network would remain a linear function of its inputs. Ignoring biases, f<sup>(1)</sup> =W<sup>T</sup>x and f<sup>(2)</sup>(h) = h<sup>T</sup>w, then f(x) = w<sup>T</sup>W<sup>T</sup>x also expressed by f(x) = x<sup>T</sup>w' where w'= Ww
 
 So, we must use a nonlinear function. Most neural networks used an affine function (linear function followed by a translation like f(x) = ax+b) defined by their learned parameters (a,b), followed by a nonlinear function called the 'activation' function. Since we have an affine function from a vector x to a vector h, then an entire matrix vector W of weights and a vector c of bias parameters are needed. Thus, we deﬁne h=g(W<sup>T</sup>x+c), where W are the weights of an affine function and c the biases. 
 
@@ -104,7 +101,7 @@ In case of problem with gradient (exploding or vanishing gradient) we could alte
 1) Check out this repository<br/>
 > git clone https://github.com/ClaudeCoulombe/GBC_book_DeepLearningBook.git
 
-2) Start Jupyter iPython Notebook from the folder where the code ins installed<br/>
+2) Start Jupyter iPython Notebook from the folder where the code is installed<br/>
 > Jupyter Notebook
 
 3) Execute the GBC_Book-Learning_XOR_In_TensorFlow.ipynb notebook
