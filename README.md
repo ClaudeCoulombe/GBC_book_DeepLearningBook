@@ -98,3 +98,15 @@ Then the classical MSE function wich uses the TensorFlow `tf.reduce_mean` functi
 In case of problem with gradient (exploding or vanishing gradient) we could alternatively perform gradient clipping using the TensorFlow function `tf.clip_by_value(t, clip_value_min, clip_value_max)`. Any value less than clip_value_min will be set to clip_value_min. Any value greater than clip_value_max will be set to clip_value_max.
 
 `loss = tf.reduce_sum(tf.pow(tf.clip_by_value(y_estimated,1e-10,1.0) - Y,2))/(n_instances)`
+
+### Instructions
+
+1) Check out this repository. 
+git clone https://github.com/ClaudeCoulombe/GBC_book_DeepLearningBook.git
+
+2) Start Jupyter iPython Notebook from the folder where the code ins installed
+Jupyter Notebook
+
+3) Execute the GBC_Book-Learning_XOR_In_TensorFlow.ipynb notebook
+
+
