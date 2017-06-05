@@ -50,7 +50,7 @@ Below the architecture of our shallow (not deep at all!) feedforward neural netw
 The left part of the above figure shows a detailed representation of the neural network, neuron by neuron with all the connections (except the biases). Good for small NNs this notation can be too cumbersome for larger networks. At right, the neural network is presented by layers in a more compact notation with weights represented by matrix (W and w).
 
 ### A bit of math behind
-Here, the XOR function is the target function y=f<sup>*</sup>(x) that we want to learn. The model provides a function y=f(x;&Theta;) and backpropagation, our learning algorithm, will adapt the parameters &Theta; to make f as similar as possible to f<sup>*</sup>.
+Here, the XOR function is the target function y=f*(x) that we want to learn. The model provides a function y=f(x;&Theta;) and backpropagation, our learning algorithm, will adapt the parameters &Theta; to make f as similar as possible to f*.
 
 In this simple example, we want the neural network to perform correctly on only the four points X = { [0,0]<sup>T</sup>, [0,1]<sup>T</sup>, [1,0]<sup>T</sup>, [1,1]<sup>T</sup> } of the XOR truth table. In order to do so, we will train the neural network on all four of these points. The only challenge is to ﬁt the training set.
 
@@ -74,9 +74,9 @@ Now that we have our model, it's time to choose a loss function. We will treat t
 
 Mathematically our MSE loss function is:
 
-<center>J(&Theta;) = 1/4 &Sigma;<sub>{x &epsilon; X}</sub>(f<sup>*</sup>(x)-f(x;&Theta;))<sup>2</sup></center><br/>
+<center>J(&Theta;) = 1/4 &Sigma;<sub>{x &epsilon; X}</sub>(f<sup>*</sup>(x)-f(x;&Theta;))<sup>2</sup></center><br/><br/>
 
-We also add a sigmoid function at the output layer as recommended for the prediction of a binary variable in the section 6.2.2.2 of the GBC book. 
+We have also added a sigmoid function at the output layer as recommended for the prediction of a binary variable in the section 6.2.2.2 of the GBC book. 
 
 <center>ÿ = &sigma;(w<sup>T</sup> max{0,W<sup>T</sup>x+c}+b)</center>
 
