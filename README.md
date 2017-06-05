@@ -26,12 +26,7 @@ So now, I commit a modest contribution to my dream by coding the 6.1 Example: Le
 
 In order to make the idea of a feedforward network (or multilayer perceptron) more concrete, in chapter 6 (Deep Feedforward Networks) the GBC book suggests a small example of a fully functioning feedforward network on a very simple task: learning the XOR (“exclusive or”) function. Below, the XOR Truth Table:
 
-| $x_1$ | $x_2$ | $x_1$ XOR $x_2$ |
-|:-:|:-:|:-------:|
-| 0 | 0 |    0    |  
-| 0 | 1 |    1    |
-| 1 | 0 |    1    |
-| 1 | 1 |    0    |
+<img src="images/XOR_Truth_Table.png" width=500 />
 
 Nobody should get too excited, this is NOT a deep neural network example. It's quite the contrary, but it's an instructive illustration of a simple problem that requires a three layers perceptron (with a so-called "hidden" or "intermediary" layer) also known as one "hidden layer" perceptron. It also needs nonlinear functions called activation functions. 
 
@@ -52,14 +47,14 @@ Below the architecture of our shallow (not deep at all!) feedforward neural netw
 
 <img src="images/feedforward_network_solving_XOR.png" width=400 />
 
-The left part of the above figure shows a detailed representation of the neural network, neuron by neuron with all the connections (except the biases). Good for small NNs this notation can be too cumbersome for larger networks. At right, the neural network is presented by layers in a more compact notation with weights represented by matrix ($W$ and $w$).      
+The left part of the above figure shows a detailed representation of the neural network, neuron by neuron with all the connections (except the biases). Good for small NNs this notation can be too cumbersome for larger networks. At right, the neural network is presented by layers in a more compact notation with weights represented by matrix (`W` and `w`).      
 
 ### A bit of math behind
-Here, the XOR function is the target function $y=f^*(x)$ that we want to learn. The model provides a function $y=f(x;\theta)$ and backpropagation, our learning algorithm, will adapt the parameters $\theta$ to make f as similar as possible to $f^*$.
+Here, the XOR function is the target function `y=f*(x)` that we want to learn. The model provides a function `y=f(x;&Theta;)` and backpropagation, our learning algorithm, will adapt the parameters &Theta; to make `f` as similar as possible to `f*`.
 
-In this simple example, we want the neural network to perform correctly on only the four points $X = \{ [0,0]^T, [0,1]^T, [1,0]^T, [1,1]^T \}$ of the XOR truth table. In order to do so, we will train the neural network on all four of these points. The only challenge is to ﬁt the training set.
+In this simple example, we want the neural network to perform correctly on only the four points X = { [0,0], [0,1], [1,0], [1,1] } of the XOR truth table. In order to do so, we will train the neural network on all four of these points. The only challenge is to ﬁt the training set.
 
-The architecture of the neural network is a very simple feedforward network which involves three layers. The first layer is a simple input layer $x$ which is fed to the second layer that is one single layer of hidden units $h$ computed by a function $f^{(1)}(x;W,c)$. The values of these hidden units are the input for a third layer which is the output layer of the network. The output layer is a linear regression model applied to $h$. Thus, the network involves two functions chained together: $h=f^{(1)}(x;W,c)$ and $y=f^{(2)}(h;w,b)$. The complete model is $f(x;W,c,w,b) = f^{(2)}(f^{(1)}(x))$.
+The architecture of the neural network is a very simple feedforward network which involves three layers. The first layer is a simple input layer `x` which is fed to the second layer that is one single layer of hidden units $h$ computed by a function $f^{(1)}(x;W,c)$. The values of these hidden units are the input for a third layer which is the output layer of the network. The output layer is a linear regression model applied to $h$. Thus, the network involves two functions chained together: $h=f^{(1)}(x;W,c)$ and $y=f^{(2)}(h;w,b)$. The complete model is $f(x;W,c,w,b) = f^{(2)}(f^{(1)}(x))$.
 
 What does the function $f^{(1)}$ compute? We cannot take linear models since if $f^{(1)}$ is linear, then the entire neural network would remain a linear function of its input. Ignoring biases, f $f^{(1)}=W^Tx$ and $f^{(2)}(h) = h^Tw$, then $f(x) = w^TW^Tx$ also expressed by $f(x) = x^Tw'$ where $w'= Ww$
 
