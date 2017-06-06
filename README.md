@@ -88,7 +88,7 @@ I also proposed different loss functions that I've commented in my code below.
 
 First, a naive direct implementation of the loss function as shown in the GBC book.
 
-`n_instances = X.get_shape().as_list()[0]`.ipynb_checkpoints/
+`n_instances = X.get_shape().as_list()[0]`
 `loss = tf.reduce_sum(tf.pow(y_estimated - Y, 2))/ n_instances`
 
 Then the classical MSE function suggested for math simplicity in the GBC book which uses the TensorFlow `tf.reduce_mean` function that should take care of numerical stability issue as I read somewhere...<br/>      
