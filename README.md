@@ -58,7 +58,7 @@ In this simple example, the neural network have to learn only the four points X 
 
 The architecture of the neural network is a very simple feedforward network which involves three layers. The first layer is a simple input layer x which is fed to the second layer that is one single layer of hidden units h computed by an affine function (linear function followed by a translation like f(x) = &Theta; x+b) defined by its learned parameters (&Theta;,b), followed by a nonlinear function called the 'activation' function. Thus, we deﬁne h=g(W<sup>T</sup>x+c), where W are the weights of an affine function, c the biases and g the activation function. Since we have an affine function from a vector x to a vector h, then an entire matrix vector W of weights and a vector c of bias parameters are needed. The values of these hidden units are the input for a third layer which is the output layer of the network. The output layer is a linear regression model applied to h. 
 
-The activation function g is applied to each element, with h<sub>i</sub> = g(x<sup>T</sup>W<sub>:,i</sub>+c<sub>i</sub>). The state-of-the-art recommendation for the activation function is to use the rectiﬁed linear unitor ReLU deﬁned by the function g(z) = max{0,z} shown below. Strangely, this function is neither continous nor derivable at z=0.<br/>
+The activation function g is applied to each element, with h<sub>i</sub> = g(x<sup>T</sup>W<sub>:,i</sub>+c<sub>i</sub>). The state-of-the-art recommendation for the activation function is to use the rectiﬁed linear unit or ReLU deﬁned by the function g(z) = max{0,z} shown below. Strangely, this function is neither continous nor derivable at z=0.<br/>
 
 <img src="images/ReLU_function.png" width=600 />
 
