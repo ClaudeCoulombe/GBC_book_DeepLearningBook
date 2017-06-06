@@ -95,11 +95,12 @@ Then the classical MSE function suggested for math simplicity in the GBC book wh
 
 `loss = tf.reduce_mean(tf.squared_difference(y_estimated, Y))`<br/> 
 
-For better result with binary classifier, use cross entropy with a sigmoid<br/>
+For better result with binary classifier, use cross entropy with a sigmoid.<br/>
 `loss = tf.nn.sigmoid_cross_entropy_with_logits(logits=y_estimated, labels=Y)`
 
 In case of problem with gradient (exploding or vanishing gradient) we could alternatively perform gradient clipping using the TensorFlow function `tf.clip_by_value(t, clip_value_min, clip_value_max)`. Any value less than clip_value_min will be set to clip_value_min. Any value greater than clip_value_max will be set to clip_value_max.<br/>
 
+`n_instances = X.get_shape().as_list()[0]`<br/>
 `loss = tf.reduce_sum(tf.pow(tf.clip_by_value(y_estimated,1e-10,1.0) - Y,2))/(n_instances)`
 
 ### Instructions
